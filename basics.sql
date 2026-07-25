@@ -14,14 +14,13 @@
 
 /*
 ====================================================
-SELECT
-Retrieve specific columns or all columns from a table.
+01. SELECT
+Retrieve columns from a table.
 ====================================================
 */
 
 /*
-Question:
-Show every employee in the company.
+Question: Show every employee in the company.
 */
 
 SELECT *
@@ -29,24 +28,23 @@ FROM employees;
 
 
 /*
-Question:
-Show each employee's first name, last name, and department.
+Question: Show each employee's first name, last name, and department.
 */
 
 SELECT first_name, last_name, department
 FROM employees;
 
 
+
 /*
 ====================================================
-WHERE
-Filter rows that meet a specific condition.
+02. WHERE
+Filter rows that meet specific conditions.
 ====================================================
 */
 
 /*
-Question:
-Show all active projects.
+Question: Show all active projects.
 */
 
 SELECT project_name
@@ -55,8 +53,7 @@ WHERE status = 'Active';
 
 
 /*
-Question:
-Show the names and budgets of all construction projects.
+Question: Show the names and budgets of all construction projects.
 */
 
 SELECT project_name, budget
@@ -65,8 +62,7 @@ WHERE department = 'Construction';
 
 
 /*
-Question:
-Show all active construction projects.
+Question: Show all active construction projects.
 */
 
 SELECT project_name, budget
@@ -76,8 +72,7 @@ AND status = 'Active';
 
 
 /*
-Question:
-Show all projects with a budget greater than $5,000,000.
+Question: Show all projects with a budget greater than $5,000,000.
 */
 
 SELECT project_name, budget
@@ -85,25 +80,25 @@ FROM projects
 WHERE budget > 5000000;
 
 
+
 /*
 ====================================================
-ORDER BY
+03. ORDER BY
 Sort query results.
 ====================================================
 */
 
 /*
-Question:
-Show all projects ordered from the largest budget to the smallest.
+Question: Show all projects ordered from largest budget to smallest.
 */
 
 SELECT project_name, budget
 FROM projects
 ORDER BY budget DESC;
 
+
 /*
-Question:
-Show all employees sorted alphabetically by their last name.
+Question: Show all employees sorted alphabetically by last name.
 */
 
 SELECT first_name, last_name
@@ -111,99 +106,112 @@ FROM employees
 ORDER BY last_name;
 
 
+
 /*
 ====================================================
-DISTINCT
+04. DISTINCT
 Return only unique values.
 ====================================================
 */
 
 /*
-Question:
-What departments exist in the company?
+Question: What departments exist in the company?
 */
 
 SELECT DISTINCT department
 FROM employees;
 
 
+
 /*
 ====================================================
-COUNT()
-Count the number of rows that meet a condition.
+05. COUNT()
+Count rows that meet a condition.
 ====================================================
 */
 
 /*
-Question:
-How many employees work for the company?
+Question: How many employees work for the company?
 */
 
-SELECT COUNT(*)
+SELECT COUNT(*) AS employee_count
 FROM employees;
 
+
 /*
-Question:
-How many active projects does the company currently have?
+Question: How many active projects does the company currently have?
 */
 
 SELECT COUNT(*) AS active_project_count
 FROM projects
 WHERE status = 'Active';
 
+
+
 /*
 ====================================================
-GROUP BY
-Group rows together to perform calculations on categories.
+06. GROUP BY
+Group rows together to perform calculations.
 ====================================================
 */
 
 /*
-Question:
-How many projects does each department have?
+Question: How many projects does each department have?
 */
 
-SELECT department, COUNT(*)
+SELECT department, COUNT(*) AS project_count
 FROM projects
 GROUP BY department;
 
+
+
 /*
 ====================================================
-HAVING
+07. HAVING
 Filter groups after aggregation.
 ====================================================
 */
 
 /*
-Question:
-Which departments have more than five projects?
+Question: Which departments have more than five projects?
 */
 
-SELECT department, COUNT(*)
+SELECT department, COUNT(*) AS project_count
 FROM projects
 GROUP BY department
 HAVING COUNT(*) > 5;
 
+
+
 /*
 ====================================================
-INNER JOIN
-Combine related information from multiple tables.
+08. INNER JOIN
+Combine matching information from multiple tables.
 ====================================================
 */
 
 /*
-Question:
-Show every employee and the department they work in.
+Question: Show every employee and the department they work in.
 */
 
 SELECT first_name, last_name, department_name
 FROM employees
-JOIN departments
+INNER JOIN departments
 ON employees.department_id = departments.department_id;
+
+
+
+/*
+====================================================
+09. LEFT JOIN
+Keep all records from the left table, even without matches.
+====================================================
+*/
 
 /*
 Question:
-Show every employee and their department, including employees without an assigned department.
+Show every employee and their department, including employees
+without an assigned department.
 */
 
 SELECT first_name, last_name, department_name
