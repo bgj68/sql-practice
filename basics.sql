@@ -100,3 +100,12 @@ Show all projects ordered from the largest budget to the smallest.
 SELECT project_name, budget
 FROM projects
 ORDER BY budget DESC;
+
+/*
+Question:
+Show all employees sorted alphabetically by their last name.
+*/
+
+SELECT first_name, last_name
+FROM employees
+ORDER BY last_name;
