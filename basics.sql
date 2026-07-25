@@ -141,3 +141,28 @@ How many employees work for the company?
 
 SELECT COUNT(*)
 FROM employees;
+
+/*
+Question:
+How many active projects does the company currently have?
+*/
+
+SELECT COUNT(*) AS active_project_count
+FROM projects
+WHERE status = 'Active';
+
+/*
+====================================================
+GROUP BY
+Group rows together to perform calculations on categories.
+====================================================
+*/
+
+/*
+Question:
+How many projects does each department have?
+*/
+
+SELECT department, COUNT(*)
+FROM projects
+GROUP BY department;
