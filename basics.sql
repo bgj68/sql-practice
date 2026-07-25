@@ -109,3 +109,19 @@ Show all employees sorted alphabetically by their last name.
 SELECT first_name, last_name
 FROM employees
 ORDER BY last_name;
+
+
+/*
+====================================================
+DISTINCT
+Return only unique values.
+====================================================
+*/
+
+/*
+Question:
+What departments exist in the company?
+*/
+
+SELECT DISTINCT department
+FROM employees;
