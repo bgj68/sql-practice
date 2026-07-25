@@ -200,3 +200,13 @@ SELECT first_name, last_name, department_name
 FROM employees
 JOIN departments
 ON employees.department_id = departments.department_id;
+
+/*
+Question:
+Show every employee and their department, including employees without an assigned department.
+*/
+
+SELECT first_name, last_name, department_name
+FROM employees
+LEFT JOIN departments
+ON employees.department_id = departments.department_id;
