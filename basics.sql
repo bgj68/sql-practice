@@ -83,3 +83,20 @@ Show all projects with a budget greater than $5,000,000.
 SELECT project_name, budget
 FROM projects
 WHERE budget > 5000000;
+
+
+/*
+====================================================
+ORDER BY
+Sort query results.
+====================================================
+*/
+
+/*
+Question:
+Show all projects ordered from the largest budget to the smallest.
+*/
+
+SELECT project_name, budget
+FROM projects
+ORDER BY budget DESC;
