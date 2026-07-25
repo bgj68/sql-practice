@@ -166,3 +166,20 @@ How many projects does each department have?
 SELECT department, COUNT(*)
 FROM projects
 GROUP BY department;
+
+/*
+====================================================
+HAVING
+Filter groups after aggregation.
+====================================================
+*/
+
+/*
+Question:
+Which departments have more than five projects?
+*/
+
+SELECT department, COUNT(*)
+FROM projects
+GROUP BY department
+HAVING COUNT(*) > 5;
