@@ -183,3 +183,20 @@ SELECT department, COUNT(*)
 FROM projects
 GROUP BY department
 HAVING COUNT(*) > 5;
+
+/*
+====================================================
+INNER JOIN
+Combine related information from multiple tables.
+====================================================
+*/
+
+/*
+Question:
+Show every employee and the department they work in.
+*/
+
+SELECT first_name, last_name, department_name
+FROM employees
+JOIN departments
+ON employees.department_id = departments.department_id;
