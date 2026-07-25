@@ -125,3 +125,19 @@ What departments exist in the company?
 
 SELECT DISTINCT department
 FROM employees;
+
+
+/*
+====================================================
+COUNT()
+Count the number of rows that meet a condition.
+====================================================
+*/
+
+/*
+Question:
+How many employees work for the company?
+*/
+
+SELECT COUNT(*)
+FROM employees;
